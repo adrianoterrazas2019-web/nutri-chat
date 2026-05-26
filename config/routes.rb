@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root "pages#home"
-  resources :meals, only: [ :index, :show ]
+  resources :meals, only: [ :index, :show, :edit, :create ]
 end

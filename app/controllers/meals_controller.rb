@@ -7,6 +7,12 @@ class MealsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def create
+  end
+
   private
 
   def set_meal
