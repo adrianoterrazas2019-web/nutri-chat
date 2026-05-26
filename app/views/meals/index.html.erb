@@ -1,0 +1,22 @@
+<h1>Meals</h1>
+
+<% @meals.each do |meal| %>
+
+  <div>
+
+    <h2><%= meal.title %></h2>
+
+    <p>
+      <%= meal.description %>
+    </p>
+
+    <p>
+      <strong>Nutritional info:</strong>
+      <%= meal.nutritional_info %>
+    </p>
+
+    <%= link_to "Show meal", meal_path(meal) %>
+
+  </div>
+
+<% end %>
