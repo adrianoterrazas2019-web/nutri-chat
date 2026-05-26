@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "chat/index"
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
 end
 
 Rails.application.routes.draw do
+  get "chat/index"
   root "home#index"
 
   get "/chat", to: "chat#index"
