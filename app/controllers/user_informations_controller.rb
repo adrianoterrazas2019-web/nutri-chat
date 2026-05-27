@@ -1,6 +1,12 @@
 class UserInformationsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @user_information =
+      current_user.user_information ||
+      current_user.build_user_information
+  end
+
   def edit
     @user_information =
       current_user.user_information ||
