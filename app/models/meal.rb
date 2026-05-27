@@ -1,3 +1,3 @@
 class Meal < ApplicationRecord
-  belongs_to :chat
+  has_one :chat
 end
