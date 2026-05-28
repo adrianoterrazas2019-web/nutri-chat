@@ -18,6 +18,7 @@ class MealsController < ApplicationController
 
     @meal = Meal.new(response.content)
     @meal.description = meal_params[:description]
+    @meal.user = current_user
 
     if @meal.save
       redirect_to meal_path(@meal)
