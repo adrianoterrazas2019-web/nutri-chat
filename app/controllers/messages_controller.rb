@@ -1,6 +1,17 @@
 class MessagesController < ApplicationController
-  SYSTEM_PROMPT = "You are a Nutritionist.\n\nI want to know about my meal.\n\nDescribe the nutritional values of my meal.\n\nAnswer concisely in Markdown."
+  SYSTEM_PROMPT = <<~PROMPT
+    You are an expert nutrition assistant.
 
+    Analyze the user's meal and estimate:
+    calories, protein, carbohydrates, sugar, fat,
+    Nutri-score, allergens, gluten, and lactose.
+    Estimate nutrition for the user's meal using typical serving sizes when exact brand,
+    restaurant, or portion size is missing.
+
+    Return only structured data matching the schema.
+    Mark uncertainty with certainty and notes.
+  PROMPT
+  
   def create
     @chat = current_user.chats.find(params[:chat_id])
     @meal = @chat.meal

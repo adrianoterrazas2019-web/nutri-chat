@@ -1,0 +1,34 @@
+<h1>Edit Information</h1>
+
+<%= form_with model: @user_information,
+              url: user_information_path,
+              method: :patch do |f| %>
+
+  <div>
+    <%= f.label :goal %>
+    <%= f.text_field :goal %>
+  </div>
+
+  <div>
+    <%= f.label :restrictions %>
+    <%= f.text_area :restrictions %>
+  </div>
+
+  <div>
+    <%= f.label :birthday %>
+    <%= f.date_field :birthday %>
+  </div>
+
+  <div>
+    <%= f.label :weight %>
+    <%= f.number_field :weight, step: 0.1 %>
+  </div>
+
+  <div>
+    <%= f.label :height %>
+    <%= f.number_field :height, step: 0.1 %>
+  </div>
+
+  <%= f.submit "Save Information" %>
+
+<% end %>

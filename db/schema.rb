@@ -188,6 +188,18 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
     t.index ["key"], name: "index_solid_queue_semaphores_on_key", unique: true
   end
 
+  create_table "user_informations", force: :cascade do |t|
+    t.date "birthday"
+    t.datetime "created_at", null: false
+    t.string "goal"
+    t.float "height"
+    t.text "restrictions"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.float "weight"
+    t.index ["user_id"], name: "index_user_informations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
@@ -208,4 +220,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
   add_foreign_key "solid_queue_ready_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_recurring_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_scheduled_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "user_informations", "users"
 end
