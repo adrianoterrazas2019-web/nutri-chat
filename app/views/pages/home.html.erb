@@ -1,7 +1,29 @@
 <div class="home-container">
-  <h1>Welcome to NutriChat</h1>
-  <p>Where you can dicover what you're eating!</p>
 
-  <%= link_to "Start Chat", new_meal_path, class: "start-button" %>
+  <h1 class="hero-title">
+    Nutri<span>Chat</span>
+  </h1>
+
+  <p class="hero-subtitle">
+    Discover meals, understand nutrition,
+    and learn what you're really eating.
+  </p>
+
+ <%= link_to meals_path,
+    class: "start-button group" do %>
+
+  <p class="relative h-6 overflow-hidden">
+
+    <span class="block transition-transform duration-300 group-hover:-translate-y-full">
+      Start Your Journey
+    </span>
+
+    <span class="absolute w-full top-full left-1/2 -translate-x-1/2 block transition-transform duration-300 group-hover:-translate-y-full">
+      Add a meal →
+    </span>
+
+  </p>
+
+<% end %>
 
 </div>

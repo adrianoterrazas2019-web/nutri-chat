@@ -16,10 +16,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
 
   create_table "chats", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.bigint "meal_id", null: false
-    t.string "title"
     t.datetime "updated_at", null: false
-    t.index ["meal_id"], name: "index_chats_on_meal_id"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -41,7 +38,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
     t.bigint "chat_id", null: false
     t.text "content"
     t.datetime "created_at", null: false
-    t.string "role"
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
@@ -212,7 +208,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chats", "meals"
   add_foreign_key "messages", "chats"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

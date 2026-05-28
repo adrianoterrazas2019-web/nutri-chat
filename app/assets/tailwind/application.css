@@ -1,1 +1,64 @@
 @import "tailwindcss";
+
+
+/* HOMEPAGE */
+
+.home-container {
+  @apply min-h-screen
+         w-full
+         flex
+         flex-col
+         justify-center
+         items-center
+         text-center
+         px-6
+         bg-green-50;
+}
+
+
+.hero-title {
+  @apply text-6xl
+         md:text-8xl
+         font-black
+         tracking-tight
+         text-gray-900
+         mb-8;
+}
+
+.hero-title span {
+  @apply text-green-600;
+}
+
+
+.hero-subtitle {
+  @apply text-xl
+         md:text-2xl
+         text-gray-600
+         leading-relaxed
+         max-w-2xl
+         mb-12;
+}
+
+
+.start-button {
+  @apply inline-flex
+         items-center
+         justify-center
+         px-10
+         py-5
+         rounded-full
+         text-lg
+         font-bold
+         text-white
+         bg-gradient-to-r
+         from-green-500
+         to-emerald-600
+         shadow-xl
+         transition-all
+         duration-300;
+}
+
+.start-button:hover {
+  @apply scale-105
+         shadow-2xl;
+}
