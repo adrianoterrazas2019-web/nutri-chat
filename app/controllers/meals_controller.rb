@@ -5,6 +5,7 @@ class MealsController < ApplicationController
   end
 
   def show
+    @chats = @meal.chats
   end
 
   def new

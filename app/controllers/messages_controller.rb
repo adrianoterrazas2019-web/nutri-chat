@@ -1,19 +1,13 @@
 class MessagesController < ApplicationController
   SYSTEM_PROMPT = <<~PROMPT
-    You are an expert nutrition assistant.
-
-    Analyze the user's meal and estimate:
-    calories, protein, carbohydrates, sugar, fat,
-    Nutri-score, allergens, gluten, and lactose.
-    Estimate nutrition for the user's meal using typical serving sizes when exact brand,
-    restaurant, or portion size is missing.
-
-    Return only structured data matching the schema.
-    Mark uncertainty with certainty and notes.
+    You are a health assistant and expert nutrition.
+    The user profile is: #{get_user_profile}
+    If the user asks for advice, suggest alterations to the current meal
+    so it is more alligned to the user's profile informations.
   PROMPT
-  
+
   def create
-    @chat = current_user.chats.find(params[:chat_id])
+    @chat = Chat.find(params[:chat_id])
     @meal = @chat.meal
 
     @message = Message.new(message_params)
@@ -33,7 +27,18 @@ class MessagesController < ApplicationController
 
   private
 
+  require "date"
+
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def get_user_profile
+    { birthyear: current_user.user_information.birthday.split("-").first,
+      goal: current_user.goal,
+      height: current_user.height,
+      restrictions: current_user.restrictions,
+      weight: current_user.weight
+    }
   end
 end

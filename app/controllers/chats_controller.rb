@@ -1,6 +1,7 @@
 class ChatsController < ApplicationController
   def show
-    @chat = current_user.chats.find(params[:id])
+    @chat = Chat.find(params[:id])
+    @meal = @chat.meal
     @message = Message.new
   end
 end
