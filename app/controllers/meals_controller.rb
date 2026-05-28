@@ -12,12 +12,12 @@ class MealsController < ApplicationController
   end
 
   def create
-    prompt = helpers.sanitize(get_description, tags: [], attributes: []).squish.truncate(200)
+    prompt = helpers.sanitize(meal_params, tags: [], attributes: []).squish.truncate(200)
     chat = RubyLLM.chat
     response = chat.with_schema(MealSchema).ask("Estimate the nutritional information based on the given schema for the meal: #{prompt}")
 
     @meal = Meal.new(response.content)
-    @meal.description = get_description
+    @meal.description = meal_params[:description]
 
     if @meal.save
       redirect_to meal_path(@meal)
@@ -37,7 +37,7 @@ class MealsController < ApplicationController
     @meal = Meal.find(params[:id])
   end
 
-  def get_description
+  def meal_params
     params.require(:meal).permit(:description)
   end
 end
