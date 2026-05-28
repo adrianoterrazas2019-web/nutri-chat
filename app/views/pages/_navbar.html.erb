@@ -1,17 +1,17 @@
-<div style="display: flex; justify-content: space-between;">
+<nav class="navbar">
+
   <%= link_to "Home", root_path %>
 
-  <div>
+  <div class="navbar-links">
     <%= link_to "Add meal", "#" %>
     <%= link_to "My meals", meals_path %>
-
-   <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <%= link_to "Profile", user_information_path %>
       <%= link_to "Sign out",
           destroy_user_session_path,
           data: { turbo_method: :delete } %>
-      <%= link_to "Profile", user_information_path %>
     <% else %>
-      <%= link_to "sign in", new_user_session_path %>
+      <%= link_to "Sign in", new_user_session_path %>
     <% end %>
   </div>
-</div>
+</nav>
