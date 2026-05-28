@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_28_132919) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -35,6 +35,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
     t.decimal "sugar_g"
     t.string "title"
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_meals_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -213,6 +215,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_100838) do
   end
 
   add_foreign_key "chats", "meals"
+  add_foreign_key "meals", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
