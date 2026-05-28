@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get "/chat", to: "chat#index"
-
   devise_for :users
 
   root "pages#home"
-
-  resources :meals, only: [ :index, :show, :destroy ]
-
+  
   resource :user_information, path: "profile", only: [ :show, :edit, :update ]
+  resources :meals, only: [ :index, :show, :new, :create, :destroy ]
+  resources :chats, only: [ :show ] do
+    resources :messages, only: [ :create ]
+  end
 end

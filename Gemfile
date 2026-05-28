@@ -49,6 +49,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "ruby-lsp"
+  gem "rubocop"
 end
 
 group :development do
@@ -59,3 +62,4 @@ end
 gem "dotenv-rails"
 gem "devise"
 gem "ruby_llm"
+gem "ruby_llm-schema"

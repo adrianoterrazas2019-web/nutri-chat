@@ -1,3 +1,6 @@
 class Meal < ApplicationRecord
-  has_one :chat
+  has_many :chats, dependent: :destroy
+  belongs_to :user
+
+  validates :title, :description, presence: true
 end
