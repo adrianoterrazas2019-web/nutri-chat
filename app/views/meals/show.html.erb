@@ -1,10 +1,17 @@
 <h1><%= @meal.title %></h1>
+
 <p>
   <%= @meal.description %>
 </p>
-<p>
-  <strong>Nutritional info:</strong>
-  <%= @meal.nutritional_info %>
-</p>
 
+<ul>
+  <li>Calories: <%= @meal.calories_kcal %> kcal</li>
+  <li>Protein: <%= @meal.protein_g %> g</li>
+  <li>Carbohydrates: <%= @meal.carbohydrates_g %> g</li>
+  <li>Fat: <%= @meal.fat_g %> g</li>
+  <li>Sugar: <%= @meal.sugar_g %> g</li>
+  <li>Nutri score: <%= @meal.nutri_score %></li>
+  <li>Contains gluten: <%= @meal.contains_gluten %></li>
+  <li>Contains lactose: <%= @meal.contains_lactose %></li>
+</ul>
 <%= link_to "Delete", @meal, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
