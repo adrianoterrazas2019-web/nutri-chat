@@ -30,39 +30,39 @@ meals = [
   {
     title: "Protein Oatmeal",
     description: "Oats with berries and protein powder.",
-    calories: 420,
-    carbs: 45,
-    protein: 30,
-    contains_glucose: true,
+    calories_kcal: 420,
+    carbohydrates_g: 45,
+    protein_g: 30,
+    contains_gluten: true,
     contains_lactose: false,
-    fat: 9,
-    sugar: 8,
+    fat_g: 9,
+    sugar_g: 8,
     nutri_score: "A"
   },
 
   {
     title: "Tofu Rice Bowl",
     description: "Rice, tofu, vegetables, sesame sauce.",
-    calories: 650,
-    carbs: 62,
-    protein: 35,
-    contains_glucose: true,
+    calories_kcal: 650,
+    carbohydrates_g: 62,
+    protein_g: 35,
+    contains_gluten: true,
     contains_lactose: false,
-    fat: 18,
-    sugar: 6,
+    fat_g: 18,
+    sugar_g: 6,
     nutri_score: "B"
   },
 
   {
     title: "Greek Yogurt Snack",
     description: "Greek yogurt with nuts and honey.",
-    calories: 300,
-    carbs: 18,
-    protein: 20,
-    contains_glucose: true,
+    calories_kcal: 300,
+    carbohydrates_g: 18,
+    protein_g: 20,
+    contains_gluten: true,
     contains_lactose: true,
-    fat: 12,
-    sugar: 14,
+    fat_g: 12,
+    sugar_g: 14,
     nutri_score: "B"
   }
 ]
