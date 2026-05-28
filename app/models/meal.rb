@@ -1,3 +1,4 @@
 class Meal < ApplicationRecord
-  has_one :chat
+  has_many :chats, dependent: :destroy
+  belongs_to :user
 end
