@@ -1,15 +1,1 @@
 @import "tailwindcss";
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 36px;
-  border-bottom: 1px solid #ddd;
-  background: white;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 28px;
-}
