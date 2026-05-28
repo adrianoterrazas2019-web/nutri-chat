@@ -58,3 +58,4 @@ end
 
 gem "dotenv-rails"
 gem "devise"
+gem "ruby_llm"
