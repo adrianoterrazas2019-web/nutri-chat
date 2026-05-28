@@ -68,7 +68,9 @@ meals = [
 ]
 
 meals.each do |meal_data|
-  meal = Meal.create!(meal_data)
+  meal = Meal.new(meal_data)
+  meal.user = user
+  meal.save!
 
   Chat.create!(
     title: "#{meal.title} Chat",
