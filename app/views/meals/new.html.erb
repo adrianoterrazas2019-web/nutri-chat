@@ -1,0 +1,10 @@
+<div>
+  <h1>NutriChat</h1>
+
+  <%= form_with model: @meal do |form| %>
+    <%= form.label :description, "Describe your meal:" %>
+    <%= form.text_area :description %>
+    <%= form.submit %>
+  <% end %>
+
+</div>
