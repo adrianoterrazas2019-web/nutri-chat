@@ -1,0 +1,36 @@
+<h1>My Profile</h1>
+
+<% if @user_information.present? %>
+
+  <p>
+    <strong>Goal:</strong>
+    <%= @user_information.goal %>
+  </p>
+
+  <p>
+    <strong>Restrictions:</strong>
+    <%= @user_information.restrictions %>
+  </p>
+
+  <p>
+    <strong>Birthday:</strong>
+    <%= @user_information.birthday %>
+  </p>
+
+  <p>
+    <strong>Weight:</strong>
+    <%= @user_information.weight %>
+  </p>
+
+  <p>
+    <strong>Height:</strong>
+    <%= @user_information.height %>
+  </p>
+
+<% else %>
+
+  <p>No profile information yet.</p>
+
+<% end %>
+
+<%= link_to "Edit Information", edit_user_information_path %>
