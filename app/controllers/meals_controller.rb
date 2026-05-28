@@ -14,7 +14,11 @@ class MealsController < ApplicationController
   def create
     prompt = helpers.sanitize(meal_params, tags: [], attributes: []).squish.truncate(200)
     chat = RubyLLM.chat
-    response = chat.with_schema(MealSchema).ask("Estimate the nutritional information based on the given schema for the meal: #{prompt}")
+    response = chat.with_schema(MealSchema).ask("
+    You are a health assistant and expert nutrition.
+    Analyze the user's meal and estimate the values given in the schema.
+    Estimate nutrition for the user's meal using typical serving sizes when exact brand,
+    restaurant, or portion size is missing. The meal description is: #{prompt}")
 
     @meal = Meal.new(response.content)
     @meal.description = meal_params[:description]
