@@ -40,7 +40,7 @@ class MealsController < ApplicationController
     if @meal.update(response.content)
       redirect_to meal_path(@meal)
     else
-      render :new, status: :unprocessable_entity
+      render :show, status: :unprocessable_entity
     end
   end
 
