@@ -9,7 +9,7 @@ puts "Creating demo user..."
 
 user = User.create!(
   email: "example@email.com",
-  password: "password"
+  password: "hello12345"
 )
 
 puts "Creating user information..."
@@ -67,15 +67,40 @@ meals = [
   }
 ]
 
+chat_messages = {
+  "Protein Oatmeal" => [
+    { role: "user",      content: "Is this oatmeal enough protein for a morning workout?" },
+    { role: "assistant", content: "Yes! With 30g of protein it's a solid pre- or post-workout breakfast. The oats also give you slow-releasing carbs for sustained energy." },
+    { role: "user",      content: "Should I add anything to make it even better?" },
+    { role: "assistant", content: "You could stir in a tablespoon of almond butter for healthy fats, or top with a banana for extra potassium — both help with muscle recovery." }
+  ],
+  "Tofu Rice Bowl" => [
+    { role: "user",      content: "How can I increase the protein in this bowl without adding meat?" },
+    { role: "assistant", content: "Easy options: add edamame (extra ~9g per 100g), swap the sesame sauce for a peanut-based one with extra tofu, or sprinkle some hemp seeds on top." },
+    { role: "user",      content: "Does tofu count as a complete protein?" },
+    { role: "assistant", content: "Yes — tofu is one of the few plant proteins that contains all nine essential amino acids, making it an excellent meat substitute for muscle building." }
+  ],
+  "Greek Yogurt Snack" => [
+    { role: "user",      content: "Is this snack good for my muscle-building goal?" },
+    { role: "assistant", content: "Definitely. Greek yogurt is rich in casein, a slow-digesting protein that's especially useful before bed for overnight muscle repair." },
+    { role: "user",      content: "The sugar content seems high — is the honey a problem?" },
+    { role: "assistant", content: "14g of sugar is moderate. If you want to lower it, use a drizzle of honey instead of a tablespoon, or switch to a handful of blueberries for natural sweetness with more antioxidants." }
+  ]
+}
+
 meals.each do |meal_data|
   meal = Meal.new(meal_data)
   meal.user = user
   meal.save!
 
-  Chat.create!(
+  chat = Chat.create!(
     title: "#{meal.title} Chat",
     meal: meal
   )
+
+  (chat_messages[meal.title] || []).each do |msg|
+    Message.create!(chat: chat, role: msg[:role], content: msg[:content])
+  end
 end
 
 puts "Seeds completed!"
