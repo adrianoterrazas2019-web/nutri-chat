@@ -1,34 +1,37 @@
-<h1>Edit Information</h1>
+<div class="max-w-2xl mx-auto mt-8 p-6 border border-gray-300 rounded-lg bg-white">
+  <h1 class="text-2xl font-semibold mb-6">Edit Information</h1>
 
-<%= form_with model: @user_information,
-              url: user_information_path,
-              method: :patch do |f| %>
+  <%= form_with model: @user_information,
+                url: user_information_path,
+                method: :patch do |f| %>
 
-  <div>
-    <%= f.label :goal %>
-    <%= f.text_field :goal %>
-  </div>
+    <div class="space-y-4">
+      <div>
+        <%= f.label :goal %>
+        <%= f.text_field :goal, class: "w-full border border-gray-300 rounded p-2" %>
+      </div>
 
-  <div>
-    <%= f.label :restrictions %>
-    <%= f.text_area :restrictions %>
-  </div>
+      <div>
+        <%= f.label :restrictions %>
+        <%= f.text_area :restrictions, class: "w-full border border-gray-300 rounded p-2" %>
+      </div>
 
-  <div>
-    <%= f.label :birthday %>
-    <%= f.date_field :birthday %>
-  </div>
+      <div>
+        <%= f.label :birthday %>
+        <%= f.date_field :birthday, class: "w-full border border-gray-300 rounded p-2" %>
+      </div>
 
-  <div>
-    <%= f.label :weight %>
-    <%= f.number_field :weight, step: 0.1 %>
-  </div>
+      <div>
+        <%= f.label :weight %>
+        <%= f.number_field :weight, step: 0.1, class: "w-full border border-gray-300 rounded p-2" %>
+      </div>
 
-  <div>
-    <%= f.label :height %>
-    <%= f.number_field :height, step: 0.1 %>
-  </div>
+      <div>
+        <%= f.label :height %>
+        <%= f.number_field :height, step: 0.1, class: "w-full border border-gray-300 rounded p-2" %>
+      </div>
+    </div>
 
-  <%= f.submit "Save Information" %>
-
-<% end %>
+    <%= f.submit "Save Information", class: "mt-6 px-4 py-2 border border-gray-300 rounded" %>
+  <% end %>
+</div>
