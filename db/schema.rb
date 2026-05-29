@@ -214,6 +214,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_132919) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chats", "meals"
   add_foreign_key "meals", "users"
   add_foreign_key "messages", "chats"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

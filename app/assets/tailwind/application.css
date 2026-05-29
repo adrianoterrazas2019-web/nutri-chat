@@ -152,3 +152,130 @@
   @apply scale-105
          shadow-2xl;
 }
+
+
+/* meals show page */
+
+.meal-show-container {
+  @apply min-h-screen
+         w-full
+         bg-green-50
+         px-8
+         py-14;
+}
+
+.meal-top {
+  @apply max-w-7xl
+         mx-auto
+         grid
+         gap-8
+         md:grid-cols-3;
+}
+
+.meal-show-card {
+  @apply bg-white
+         rounded-3xl
+         shadow-lg
+         border
+         border-green-100
+         p-8
+         transition-all
+         duration-300;
+}
+
+.meal-show-card:first-child {
+  @apply md:col-span-2;
+}
+
+.meal-show-card:last-child {
+  @apply md:col-span-1;
+}
+
+.meal-actions {
+  @apply flex
+         gap-4
+         mt-6;
+}
+
+#edit-form {
+  @apply max-w-4xl
+         mx-auto
+         mt-10;
+}
+
+
+.nutrition-list li {
+  @apply flex
+         justify-between
+         py-2
+         text-gray-700
+         border-b
+         border-gray-100;
+}
+
+
+.chat-header {
+  @apply flex
+         justify-between
+         items-center
+         mb-6;
+}
+
+.chat-list {
+  @apply space-y-3
+         mt-4;
+}
+
+.chat-link {
+  @apply block
+         p-4
+         rounded-xl
+         border
+         border-green-100
+         bg-green-50
+         hover:bg-green-100
+         transition;
+}
+
+.empty-state {
+  @apply text-gray-500
+         mt-4;
+}
+
+
+.form-label {
+  @apply block
+         text-gray-700
+         font-semibold
+         mb-3;
+}
+
+.form-textarea {
+  @apply w-full
+         border
+         border-green-200
+         rounded-2xl
+         p-4
+         min-h-40
+         mb-4;
+}
+
+
+.delete-button {
+  @apply inline-flex
+         items-center
+         justify-center
+         px-6
+         py-3
+         rounded-full
+         font-bold
+         text-white
+         bg-red-500
+         transition-all
+         duration-300;
+}
+
+.delete-button:hover {
+  @apply bg-red-600
+         scale-105;
+}

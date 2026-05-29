@@ -1,41 +1,133 @@
-<h1><%= @meal.title %></h1>
+<div class="meal-show-container">
 
-<p>
-  <%= @meal.description %>
-</p>
+  <div class="meal-top">
 
-<ul>
-  <li>Calories: <%= @meal.calories_kcal %> kcal</li>
-  <li>Protein: <%= @meal.protein_g %> g</li>
-  <li>Carbohydrates: <%= @meal.carbohydrates_g %> g</li>
-  <li>Fat: <%= @meal.fat_g %> g</li>
-  <li>Sugar: <%= @meal.sugar_g %> g</li>
-  <li>Nutri score: <%= @meal.nutri_score %></li>
-  <li>Contains gluten: <%= @meal.contains_gluten %></li>
-  <li>Contains lactose: <%= @meal.contains_lactose %></li>
-</ul>
-<%= link_to "Delete", @meal, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <!-- MEAL CARD -->
+    <div class="meal-show-card">
 
-<%= form_with url: meal_path(@meal), method: :patch, model: @meal do |form| %>
-  <%= form.label :description, "Describe your meal:" %>
-  <%= form.text_area :description %>
-  <%= form.submit %>
-<% end %>
+      <h1 class="hero-title text-green-600">
+        <%= @meal.title %>
+      </h1>
 
-<div>
-  <h2>Chats</h2>
+      <p class="meal-description">
+        <%= @meal.description %>
+      </p>
 
-  <div>
-    <% if @chats.any? %>
-      <ul>
-        <% @chats.each do |chat| %>
-          <li><%= link_to chat.title, chat_path(chat) %></li>
-        <% end %>
+      <ul class="nutrition-list">
+
+        <li><span>Calories</span><span><%= @meal.calories_kcal %> kcal</span></li>
+        <li><span>Protein</span><span><%= @meal.protein_g %> g</span></li>
+        <li><span>Carbohydrates</span><span><%= @meal.carbohydrates_g %> g</span></li>
+        <li><span>Fat</span><span><%= @meal.fat_g %> g</span></li>
+        <li><span>Sugar</span><span><%= @meal.sugar_g %> g</span></li>
+        <li><span>Nutri score</span><span><%= @meal.nutri_score %></span></li>
+        <li><span>Contains gluten</span><span><%= @meal.contains_gluten %></span></li>
+        <li><span>Contains lactose</span><span><%= @meal.contains_lactose %></span></li>
+
       </ul>
-    <% else %>
-      There are no chats yet.
-    <% end %>
+
+      <!-- ACTION BUTTONS -->
+      <div class="meal-actions">
+
+        <a href="#edit-form" class="meal-button group">
+
+          <div class="relative h-6 overflow-hidden flex items-center justify-center">
+
+            <span class="block transition-transform duration-300 group-hover:-translate-y-full">
+              Edit description
+            </span>
+
+            <span class="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+              Edit →
+            </span>
+
+          </div>
+
+        </a>
+
+        <%= link_to "Delete",
+            meal_path(@meal),
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            },
+            class: "delete-button" %>
+
+      </div>
+
+    </div>
+
+    <!-- CHAT CARD -->
+    <div class="meal-show-card">
+
+      <div class="chat-header">
+
+        <h2 class="section-title text-green-600">
+          Chats
+        </h2>
+
+        <%= button_to meal_chats_path(@meal),
+            class: "meal-button group" do %>
+
+          <div class="relative h-6 overflow-hidden flex items-center justify-center">
+
+            <span class="block transition-transform duration-300 group-hover:-translate-y-full">
+              New chat
+            </span>
+
+            <span class="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+              Start →
+            </span>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+      <details class="chat-dropdown">
+
+        <summary>View chats</summary>
+
+        <% if @chats.any? %>
+          <ul class="chat-list">
+
+            <% @chats.each do |chat| %>
+              <li>
+                <%= link_to chat.title,
+                    chat_path(chat),
+                    class: "chat-link" %>
+              </li>
+            <% end %>
+
+          </ul>
+        <% else %>
+          <p class="empty-state">No chats yet.</p>
+        <% end %>
+
+      </details>
+
+    </div>
+
   </div>
 
-  <%= button_to "New chat", meal_chats_path(@meal) %>
+  <!-- EDIT FORM -->
+  <div id="edit-form" class="meal-show-card">
+
+    <h2 class="section-title text-green-600 mb-6">
+      Edit description
+    </h2>
+
+    <%= form_with model: @meal do |form| %>
+
+      <%= form.label :description, class: "form-label" %>
+
+      <%= form.text_area :description, class: "form-textarea" %>
+
+      <%= form.submit "Save changes", class: "meal-button" %>
+
+    <% end %>
+
+  </div>
+
 </div>
