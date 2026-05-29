@@ -10,72 +10,7 @@
 
   <div class="meals-grid">
 
-    <% @meals.each do |meal| %>
-
-      <div class="meal-card">
-
-        <h2 class="meal-title">
-          <%= meal.title %>
-        </h2>
-
-        <p class="meal-description">
-          <%= meal.description %>
-        </p>
-
-        <ul class="nutrition-list">
-
-          <li>
-            <span>Calories</span>
-            <span><%= meal.calories_kcal %> kcal</span>
-          </li>
-
-          <li>
-            <span>Protein</span>
-            <span><%= meal.protein_g %> g</span>
-          </li>
-
-          <li>
-            <span>Carbohydrates</span>
-            <span><%= meal.carbohydrates_g %> g</span>
-          </li>
-
-          <li>
-            <span>Fat</span>
-            <span><%= meal.fat_g %> g</span>
-          </li>
-
-          <li>
-            <span>Sugar</span>
-            <span><%= meal.sugar_g %> g</span>
-          </li>
-
-          <li>
-            <span>Nutri score</span>
-            <span><%= meal.nutri_score %></span>
-          </li>
-
-        </ul>
-
-        <%= link_to meal_path(meal),
-            class: "meal-button group" do %>
-
-          <div class="relative h-6 overflow-hidden flex items-center justify-center">
-
-            <span class="block transition-transform duration-300 group-hover:-translate-y-full">
-              View Meal
-            </span>
-
-            <span class="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-              Open →
-            </span>
-
-          </div>
-
-        <% end %>
-
-      </div>
-
-    <% end %>
+    <%= render @meals %>
 
   </div>
 
