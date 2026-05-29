@@ -1,0 +1,6 @@
+<%= form_with model: @chat, url: chat_messages_path(@chat), method: :post do |form| %>
+  <%= form.fields_for :message do |message_form| %>
+    <%= message_form.text_field :content %>
+    <%= message_form.submit %>
+  <% end %>
+<% end %>

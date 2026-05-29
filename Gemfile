@@ -63,3 +63,7 @@ gem "dotenv-rails"
 gem "devise"
 gem "ruby_llm"
 gem "ruby_llm-schema"
+
+gem "kramdown"
+gem "rouge"
+gem "kramdown-parser-gfm"
