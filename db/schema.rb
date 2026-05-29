@@ -16,7 +16,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_132919) do
 
   create_table "chats", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.bigint "meal_id", null: false
+    t.string "title"
     t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_chats_on_meal_id"
   end
 
   create_table "meals", force: :cascade do |t|
@@ -40,6 +43,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_28_132919) do
     t.bigint "chat_id", null: false
     t.text "content"
     t.datetime "created_at", null: false
+    t.string "role"
     t.datetime "updated_at", null: false
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end

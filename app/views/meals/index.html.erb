@@ -1,18 +1,17 @@
-<% @meals.each do |meal| %>
+<div class="meals-container">
 
-  <h2><%= meal.title %></h2>
+  <h1 class="hero-title">
+    Explore <span>Meals</span>
+  </h1>
 
-  <p><%= meal.description %></p>
+  <p class="hero-subtitle">
+    Browse nutritional information for your favorite meals.
+  </p>
 
-  <ul>
-    <li>Calories: <%= meal.calories_kcal %> kcal</li>
-    <li>Protein: <%= meal.protein_g %> g</li>
-    <li>Carbohydrates: <%= meal.carbohydrates_g %> g</li>
-    <li>Fat: <%= meal.fat_g %> g</li>
-    <li>Sugar: <%= meal.sugar_g %> g</li>
-    <li>Nutri score: <%= meal.nutri_score %></li>
-  </ul>
+  <div class="meals-grid">
 
-  <%= link_to "Meal", meal_path(meal) %>
+    <%= render @meals %>
 
-<% end %>
+  </div>
+
+</div>

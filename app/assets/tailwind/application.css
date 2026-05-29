@@ -62,3 +62,93 @@
   @apply scale-105
          shadow-2xl;
 }
+
+
+/* meals index page */
+
+.meals-container {
+  @apply min-h-screen
+         w-full
+         bg-green-50
+         px-8
+         py-14;
+}
+
+.meals-grid {
+  @apply max-w-7xl
+         mx-auto
+         grid
+         gap-8
+         md:grid-cols-2
+         lg:grid-cols-3;
+}
+
+.meal-card {
+  @apply bg-white
+         rounded-3xl
+         shadow-lg
+         border
+         border-green-100
+         p-8
+         transition-all
+         duration-300;
+}
+
+.meal-card:hover {
+  @apply shadow-2xl
+         -translate-y-2;
+}
+
+.meal-title {
+  @apply text-3xl
+         font-bold
+         text-green-700
+         mb-4;
+}
+
+.meal-description {
+  @apply text-gray-600
+         leading-relaxed
+         mb-6;
+}
+
+.nutrition-list {
+  @apply text-gray-700
+         mb-8;
+}
+
+.nutrition-list li {
+  @apply flex
+         justify-between
+         items-center
+         py-3
+         border-b
+         border-green-100;
+}
+
+.nutrition-list li:last-child {
+  @apply border-b-0;
+}
+
+.meal-button {
+  @apply inline-flex
+         items-center
+         justify-center
+         px-8
+         py-4
+         rounded-full
+         text-lg
+         font-bold
+         text-white
+         bg-gradient-to-r
+         from-green-500
+         to-emerald-600
+         shadow-xl
+         transition-all
+         duration-300;
+}
+
+.meal-button:hover {
+  @apply scale-105
+         shadow-2xl;
+}
