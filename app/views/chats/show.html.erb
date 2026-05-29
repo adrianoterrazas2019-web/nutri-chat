@@ -2,7 +2,6 @@
 
   <div class="chat-layout">
 
-    <!-- LEFT: MEAL -->
     <div class="chat-meal-card">
 
       <%= link_to "← Back to meal", meal_path(@chat.meal), class: "back-link" %>
@@ -26,7 +25,6 @@
 
     </div>
 
-    <!-- RIGHT: CHAT -->
     <div class="chat-main-card">
 
       <h2 class="chat-title">
@@ -40,7 +38,6 @@
       <div id="new_message_container" class="chat-input">
         <%= render "messages/form", chat: @chat, message: @message %>
       </div>
-
     </div>
 
   </div>
