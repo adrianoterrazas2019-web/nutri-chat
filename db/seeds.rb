@@ -1,9 +1,9 @@
 puts "Cleaning database..."
 
-#Chat.destroy_all
-#Meal.destroy_all
-#UserInformation.destroy_all
-#User.destroy_all
+Chat.destroy_all
+Meal.destroy_all
+UserInformation.destroy_all
+User.destroy_all
 
 puts "Creating demo user..."
 
