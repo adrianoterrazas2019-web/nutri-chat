@@ -1,29 +1,47 @@
 <div class="chat-container">
-  <%= link_to "← #{@chat.meal.title}", meal_path(@chat.meal) %>
+  <%= link_to "← Back to #{@chat.meal.title}", meal_path(@chat.meal) %>
 
   <h1>NutriChat</h1>
+  <div>
+    <%# TODO: Change this div with a partial %>
+    <h1><%= @meal.title %></h1>
 
-  <h2 id="chat_title"><%= @chat.title %></h2>
-
-  <% @chat.messages.each do |message| %>
     <p>
-      <strong><%= message.role %></strong>
-      <%= raw(render_markdown(message.content)) %>
+      <%= @meal.description %>
     </p>
-  <% end %>
 
-  <%# TODO : Check this form and fix it  %>
-  <%= form_with url: "/search", model: @chat do |form| %>
-    NutriChat:
     <ul>
-      <%= form.fields_for :message do |message_form| %>
-        <li>
-          <%= message_form.label :content, "Describe your meal here..." %>
-          <%= message_form.text_field :content %>
-          <%= message_form.submit %>
-        </li>
-      <% end %>
+      <li>Calories: <%= @meal.calories_kcal %> kcal</li>
+      <li>Protein: <%= @meal.protein_g %> g</li>
+      <li>Carbohydrates: <%= @meal.carbohydrates_g %> g</li>
+      <li>Fat: <%= @meal.fat_g %> g</li>
+      <li>Sugar: <%= @meal.sugar_g %> g</li>
+      <li>Nutri score: <%= @meal.nutri_score %></li>
+      <li>Contains gluten: <%= @meal.contains_gluten %></li>
+      <li>Contains lactose: <%= @meal.contains_lactose %></li>
     </ul>
-  <% end %>
+  </div>
+  <div>
+    <h2 id="chat_title"><%= @chat.title %></h2>
 
+    <% @chat.messages.each do |message| %>
+      <p>
+        <strong><%= message.role %></strong>
+        <%= raw(render_markdown(message.content)) %>
+      </p>
+    <% end %>
+
+    <%# TODO : Check this form and fix it  %>
+    <%= form_with url: "/search", model: @chat do |form| %>
+      NutriChat:
+      <ul>
+        <%= form.fields_for :message do |message_form| %>
+          <li>
+            <%= message_form.text_field :content %>
+            <%= message_form.submit %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>

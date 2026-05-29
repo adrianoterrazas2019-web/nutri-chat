@@ -16,6 +16,12 @@
 </ul>
 <%= link_to "Delete", @meal, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 
+<%= form_with url: meal_path(@meal), method: :patch, model: @meal do |form| %>
+  <%= form.label :description, "Describe your meal:" %>
+  <%= form.text_area :description %>
+  <%= form.submit %>
+<% end %>
+
 <div>
   <h2>Chats</h2>
 

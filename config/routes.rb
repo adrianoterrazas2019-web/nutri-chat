@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resource :user_information, path: "profile", only: [ :show, :edit, :update ]
-  resources :meals, only: [ :index, :show, :new, :create, :destroy ] do
+  resources :meals, only: [ :index, :show, :new, :create, :update, :destroy ] do
     resources :chats, only: [ :create ]
   end
   resources :chats, only: [ :show ] do
