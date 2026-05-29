@@ -3,7 +3,7 @@
   <%= link_to "Home", root_path %>
 
   <div class="flex gap-7">
-    <%= link_to "Add meal", "#" %>
+    <%= link_to "Add meal", new_meal_path %>
     <%= link_to "My meals", meals_path %>
 
     <% if user_signed_in? %>

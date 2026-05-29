@@ -1,10 +1,15 @@
-<div>
-  <h1>NutriChat</h1>
+<div id="edit-form" class="meal-show-card">
+
+  <h2 class="section-title text-green-600 mb-6">
+    Please describe your meal
+  </h2>
 
   <%= form_with model: @meal do |form| %>
-    <%= form.label :description, "Describe your meal:" %>
-    <%= form.text_area :description %>
-    <%= form.submit %>
+
+    <%= form.text_area :description, class: "form-textarea" %>
+
+    <%= form.submit "Create Meal", class: "meal-button" %>
+
   <% end %>
 
 </div>
