@@ -19,7 +19,7 @@ class UserInformationsController < ApplicationController
       current_user.build_user_information
 
     if @user_information.update(user_information_params)
-      redirect_to profile_path,
+      redirect_to user_information_path,
                   notice: "Profile updated."
     else
       render :edit,

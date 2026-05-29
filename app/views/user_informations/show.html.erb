@@ -1,36 +1,19 @@
-<h1>My Profile</h1>
+<div class="max-w-2xl mx-auto mt-8 p-6 border border-gray-300 rounded-lg bg-white">
+  <h1 class="text-2xl font-semibold mb-6">My Profile</h1>
 
-<% if @user_information.present? %>
+  <% if @user_information.present? %>
+    <div class="space-y-3">
+      <p><strong>Goal:</strong> <%= @user_information.goal %></p>
+      <p><strong>Restrictions:</strong> <%= @user_information.restrictions %></p>
+      <p><strong>Birthday:</strong> <%= @user_information.birthday %></p>
+      <p><strong>Weight:</strong> <%= @user_information.weight %></p>
+      <p><strong>Height:</strong> <%= @user_information.height %></p>
+    </div>
+  <% else %>
+    <p>No profile information yet.</p>
+  <% end %>
 
-  <p>
-    <strong>Goal:</strong>
-    <%= @user_information.goal %>
-  </p>
-
-  <p>
-    <strong>Restrictions:</strong>
-    <%= @user_information.restrictions %>
-  </p>
-
-  <p>
-    <strong>Birthday:</strong>
-    <%= @user_information.birthday %>
-  </p>
-
-  <p>
-    <strong>Weight:</strong>
-    <%= @user_information.weight %>
-  </p>
-
-  <p>
-    <strong>Height:</strong>
-    <%= @user_information.height %>
-  </p>
-
-<% else %>
-
-  <p>No profile information yet.</p>
-
-<% end %>
-
-<%= link_to "Edit Information", edit_user_information_path %>
+  <%= link_to "Edit Information",
+      edit_user_information_path,
+      class: "inline-block mt-6 px-4 py-2 border border-gray-300 rounded" %>
+</div>
