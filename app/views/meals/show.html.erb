@@ -15,3 +15,27 @@
   <li>Contains lactose: <%= @meal.contains_lactose %></li>
 </ul>
 <%= link_to "Delete", @meal, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+
+<%= form_with url: meal_path(@meal), method: :patch, model: @meal do |form| %>
+  <%= form.label :description, "Describe your meal:" %>
+  <%= form.text_area :description %>
+  <%= form.submit %>
+<% end %>
+
+<div>
+  <h2>Chats</h2>
+
+  <div>
+    <% if @chats.any? %>
+      <ul>
+        <% @chats.each do |chat| %>
+          <li><%= link_to chat.title, chat_path(chat) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      There are no chats yet.
+    <% end %>
+  </div>
+
+  <%= button_to "New chat", meal_chats_path(@meal) %>
+</div>
