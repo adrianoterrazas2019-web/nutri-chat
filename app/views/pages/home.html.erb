@@ -9,20 +9,20 @@
     and learn what you're really eating.
   </p>
 
- <%= link_to meals_path,
+<%= link_to meals_path,
     class: "start-button group" do %>
 
-  <p class="relative h-6 overflow-hidden">
+  <div class="relative h-6 overflow-hidden flex items-center justify-center">
 
     <span class="block transition-transform duration-300 group-hover:-translate-y-full">
       Start Your Journey
     </span>
 
-    <span class="absolute w-full top-full left-1/2 -translate-x-1/2 block transition-transform duration-300 group-hover:-translate-y-full">
+    <span class="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
       Add a meal →
     </span>
 
-  </p>
+  </div>
 
 <% end %>
 

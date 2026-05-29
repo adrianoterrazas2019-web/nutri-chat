@@ -1,18 +1,82 @@
-<% @meals.each do |meal| %>
+<div class="meals-container">
 
-  <h2><%= meal.title %></h2>
+  <h1 class="hero-title">
+    Explore <span>Meals</span>
+  </h1>
 
-  <p><%= meal.description %></p>
+  <p class="hero-subtitle">
+    Browse nutritional information for your favorite meals.
+  </p>
 
-  <ul>
-    <li>Calories: <%= meal.calories_kcal %> kcal</li>
-    <li>Protein: <%= meal.protein_g %> g</li>
-    <li>Carbohydrates: <%= meal.carbohydrates_g %> g</li>
-    <li>Fat: <%= meal.fat_g %> g</li>
-    <li>Sugar: <%= meal.sugar_g %> g</li>
-    <li>Nutri score: <%= meal.nutri_score %></li>
-  </ul>
+  <div class="meals-grid">
 
-  <%= link_to "Meal", meal_path(meal) %>
+    <% @meals.each do |meal| %>
 
-<% end %>
+      <div class="meal-card">
+
+        <h2 class="meal-title">
+          <%= meal.title %>
+        </h2>
+
+        <p class="meal-description">
+          <%= meal.description %>
+        </p>
+
+        <ul class="nutrition-list">
+
+          <li>
+            <span>Calories</span>
+            <span><%= meal.calories_kcal %> kcal</span>
+          </li>
+
+          <li>
+            <span>Protein</span>
+            <span><%= meal.protein_g %> g</span>
+          </li>
+
+          <li>
+            <span>Carbohydrates</span>
+            <span><%= meal.carbohydrates_g %> g</span>
+          </li>
+
+          <li>
+            <span>Fat</span>
+            <span><%= meal.fat_g %> g</span>
+          </li>
+
+          <li>
+            <span>Sugar</span>
+            <span><%= meal.sugar_g %> g</span>
+          </li>
+
+          <li>
+            <span>Nutri score</span>
+            <span><%= meal.nutri_score %></span>
+          </li>
+
+        </ul>
+
+        <%= link_to meal_path(meal),
+            class: "meal-button group" do %>
+
+          <div class="relative h-6 overflow-hidden flex items-center justify-center">
+
+            <span class="block transition-transform duration-300 group-hover:-translate-y-full">
+              View Meal
+            </span>
+
+            <span class="absolute inset-0 flex items-center justify-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+              Open →
+            </span>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+</div>
